@@ -1,16 +1,19 @@
-# This is a sample Python script.
+# from kivy.app import App
+# from kivy.uix.boxlayout import BoxLayout
+# from kivy.uix.textinput import TextInput
+# from kivy.uix.button import Button
+# from kivy.clock import Clock
+# from kivy.core.window import Window
+#
+# class Expedition(BoxLayout):
+#     def __init__(self, **kwargs):
+#         super().__init__()
+#
+# class ExpeditionApp(App):
+#     def build(self):
+#         return Expedition()
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+from startingscreen import ExpeditionApp
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    ExpeditionApp().run()
