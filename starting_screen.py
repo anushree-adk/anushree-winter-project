@@ -52,39 +52,39 @@ class StartingScreen(Screen):
         self.manager.transition.direction = 'left'
 
 
-class SceneOne(Screen):
-    def __init__(self, **kwargs):
-        super(SceneOne, self).__init__(**kwargs)
-        self.text = TextInput(
-            font_size=150,
-            font_name='comic sans ms',
-            readonly=True,
-            halign="center",
-            pos_hint={"center_x": 0.5, "center_y": 0.9},
-            size_hint_y=0.2,
-            background_color=[0.2, 0.5, 0.9, 11],
-            text="Scene One:",
-            cursor_width=0
-        )
-        self.add_widget(self.text)
+# class SceneOne(Screen):
+#     def __init__(self, **kwargs):
+#         super(SceneOne, self).__init__(**kwargs)
+#         self.text = TextInput(
+#             font_size=150,
+#             font_name='comic sans ms',
+#             readonly=True,
+#             halign="center",
+#             pos_hint={"center_x": 0.5, "center_y": 0.9},
+#             size_hint_y=0.2,
+#             background_color=[0.2, 0.5, 0.9, 11],
+#             text="Scene One:",
+#             cursor_width=0
+#         )
+#         self.add_widget(self.text)
+#
+#         self.text = TextInput(
+#             font_size=100,
+#             font_name='comic sans ms',
+#             readonly=True,
+#             halign="center",
+#             pos_hint={"center_x": 0.5, "center_y": 0.3},
+#             background_color=[0.6, 0.8, 0.9, 1],
+#             text="You are on a cruise for a vacation, and suddenly people are running around in panic everywhere you look.",
+#             cursor_width=0
+#         )
+#         self.add_widget(self.text)
 
-        self.text = TextInput(
-            font_size=100,
-            font_name='comic sans ms',
-            readonly=True,
-            halign="center",
-            pos_hint={"center_x": 0.5, "center_y": 0.3},
-            background_color=[0.6, 0.8, 0.9, 1],
-            text="You are on a cruise for a vacation, and suddenly people are running around in panic everywhere you look.",
-            cursor_width=0
-        )
-        self.add_widget(self.text)
 
 
-
-class ExpeditionApp(App):
-    def build(self):
-        sm = ScreenManager()
-        sm.add_widget(StartingScreen(name='starting_screen'))
-        sm.add_widget(SceneOne(name='scene_one'))
-        return sm
+# class ExpeditionApp(App):
+#     def build(self):
+#         sm = ScreenManager()
+#         sm.add_widget(StartingScreen(name='starting_screen'))
+#         sm.add_widget(SceneOne(name='scene_one'))
+#         return sm
