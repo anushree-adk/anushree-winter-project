@@ -13,7 +13,7 @@
 #     def build(self):
 #         return Expedition()
 
-from startingscreen import ExpeditionApp
+from starting_screen import ExpeditionApp
 
 if __name__ == '__main__':
     ExpeditionApp().run()

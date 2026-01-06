@@ -1,4 +1,5 @@
 from kivy.app import App
+from kivy.compat import clock
 from kivy.properties import StringProperty
 from kivy.uix import button
 from kivy.uix.boxlayout import BoxLayout
@@ -9,6 +10,7 @@ from kivy.uix.button import Button
 from kivy.clock import Clock
 from kivy.core.window import Window
 from kivy.uix.label import Label
+from kivy.uix.image import Image
 
 # This is the starting screen that comes when run
 class StartingScreen(Screen):
@@ -39,9 +41,11 @@ class StartingScreen(Screen):
             font_name="comic sans ms",
         )
 
-
-        playbutton.bind(on_press=self.play_game)
+        playbutton.bind(on_press=self.timeout)
         self.add_widget(playbutton)
+
+    def timeout(self, instance):
+        Clock.schedule_once(self.play_game, 0.8)
 
     def play_game(self, instance):
         self.manager.current = 'scene_one'
@@ -58,7 +62,7 @@ class SceneOne(Screen):
             halign="center",
             pos_hint={"center_x": 0.5, "center_y": 0.9},
             size_hint_y=0.2,
-            background_color=[0.9, 1, 0.9, 1],
+            background_color=[0.2, 0.5, 0.9, 11],
             text="Scene One:",
             cursor_width=0
         )
@@ -70,11 +74,12 @@ class SceneOne(Screen):
             readonly=True,
             halign="center",
             pos_hint={"center_x": 0.5, "center_y": 0.3},
-            background_color=[0.9, 1, 0.9, 1],
-            text="You are on a cruise for a vacation, and people are running around in panic everywhere you look.",
+            background_color=[0.6, 0.8, 0.9, 1],
+            text="You are on a cruise for a vacation, and suddenly people are running around in panic everywhere you look.",
             cursor_width=0
         )
         self.add_widget(self.text)
+
 
 
 class ExpeditionApp(App):
