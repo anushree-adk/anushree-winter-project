@@ -3,7 +3,7 @@ from kivy.compat import clock
 from kivy.properties import StringProperty
 from kivy.uix import button
 from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.screenmanager import Screen, ScreenManager
+from kivy.uix.screenmanager import Screen, ScreenManager, FadeTransition
 from kivy.uix.textinput import TextInput
 from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.button import Button
@@ -40,51 +40,12 @@ class StartingScreen(Screen):
             background_color=[0.1, 0.5, 0.2, 0.8],
             font_name="comic sans ms",
         )
-
         playbutton.bind(on_press=self.timeout)
         self.add_widget(playbutton)
 
     def timeout(self, instance):
-        Clock.schedule_once(self.play_game, 0.8)
+        Clock.schedule_once(self.transition, 0)
 
-    def play_game(self, instance):
-        self.manager.current = 'scene_one'
-        self.manager.transition.direction = 'left'
-
-
-# class SceneOne(Screen):
-#     def __init__(self, **kwargs):
-#         super(SceneOne, self).__init__(**kwargs)
-#         self.text = TextInput(
-#             font_size=150,
-#             font_name='comic sans ms',
-#             readonly=True,
-#             halign="center",
-#             pos_hint={"center_x": 0.5, "center_y": 0.9},
-#             size_hint_y=0.2,
-#             background_color=[0.2, 0.5, 0.9, 11],
-#             text="Scene One:",
-#             cursor_width=0
-#         )
-#         self.add_widget(self.text)
-#
-#         self.text = TextInput(
-#             font_size=100,
-#             font_name='comic sans ms',
-#             readonly=True,
-#             halign="center",
-#             pos_hint={"center_x": 0.5, "center_y": 0.3},
-#             background_color=[0.6, 0.8, 0.9, 1],
-#             text="You are on a cruise for a vacation, and suddenly people are running around in panic everywhere you look.",
-#             cursor_width=0
-#         )
-#         self.add_widget(self.text)
-
-
-
-# class ExpeditionApp(App):
-#     def build(self):
-#         sm = ScreenManager()
-#         sm.add_widget(StartingScreen(name='starting_screen'))
-#         sm.add_widget(SceneOne(name='scene_one'))
-#         return sm
+    def transition(self, instance):
+        self.manager.transition = FadeTransition()
+        self.manager.current = 'starting_intro'
