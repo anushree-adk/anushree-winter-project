@@ -20,14 +20,14 @@ class SceneOne(Screen):
 
         # Scene One heading
         self.text = TextInput(
-            font_size=150,
+            font_size=120,
             font_name='comic sans ms',
             readonly=True,
             halign="center",
             pos_hint={"center_x": 0.5, "center_y": 0.9},
             size_hint_y=0.2,
             background_color=[0.2, 0.5, 0.9, 1],
-            text="Scene One:",
+            text="Background Info (Part 1):",
             cursor_width=0
         )
         self.add_widget(self.text)
@@ -71,14 +71,14 @@ class SceneTwo(Screen):
 
         # Scene Two heading
         self.text = TextInput(
-            font_size=150,
+            font_size=120,
             font_name='comic sans ms',
             readonly=True,
             halign="center",
             pos_hint={"center_x": 0.5, "center_y": 0.9},
             size_hint_y=0.2,
             background_color=[0.2, 0.5, 0.9, 11],
-            text="Scene Two:",
+            text="Background Info (Part 2):",
             cursor_width=0
         )
         self.add_widget(self.text)
@@ -109,13 +109,102 @@ class SceneTwo(Screen):
         self.add_widget(nextbutton)
 
     def timeout(self, instance):
+        Clock.schedule_once(self.scene_3, 0.8)
+
+    def scene_3(self, instance):
+        self.manager.transition = SlideTransition(direction='left')
+        self.manager.current = 'scene_three'
+
+
+class SceneThree(Screen):
+    def __init__(self, **kwargs):
+        super(SceneThree, self).__init__(**kwargs)
+
+        self.text = TextInput(
+            font_size=120,
+            font_name='comic sans ms',
+            readonly=True,
+            halign="center",
+            pos_hint={"center_x": 0.5, "center_y": 0.9},
+            size_hint_y=0.2,
+            background_color=[0.2, 0.5, 0.9, 1],
+            text="Game Rules (Part 1):",
+            cursor_width=0
+        )
+        self.add_widget(self.text)
+
+        self.text = TextInput(
+            font_size=70,
+            font_name='comic sans ms',
+            readonly=True,
+            halign="center",
+            pos_hint={"center_x": 0.5, "center_y": 0.3},
+            background_color=[0.6, 0.8, 0.9, 1],
+            text="Throughout this game, you have to make various decisions to survive. At the start of the game you have 3 hearts. Every round, you will have 3 choices: the worst choice (-1 heart), a harmful but okay choice (-0.5 hearts), and a good choice (-0 hearts).",
+            cursor_width=0
+        )
+        self.add_widget(self.text)
+
+        nextbutton = Button(
+            text="Next",
+            font_size=70,
+            size_hint=(0.2, 0.2),
+            pos_hint={"center_x": 0.5, "center_y": 0.17},
+            background_color=[0.2, 0.5, 0.9, 0.8],
+            font_name="comic sans ms",
+        )
+        nextbutton.bind(on_press=self.timeout)
+        self.add_widget(nextbutton)
+
+    def timeout(self, instance):
+        Clock.schedule_once(self.scene_4, 0.8)
+
+    def scene_4(self, instance):
+        self.manager.transition = SlideTransition(direction='left')
+        self.manager.current = 'scene_four'
+
+class SceneFour(Screen):
+    def __init__(self, **kwargs):
+        super(SceneFour, self).__init__(**kwargs)
+        self.text = TextInput(
+            font_size=120,
+            font_name='comic sans ms',
+            readonly=True,
+            halign="center",
+            pos_hint={"center_x": 0.5, "center_y": 0.9},
+            size_hint_y=0.2,
+            background_color=[0.2, 0.5, 0.9, 11],
+            text="Game Rules (Part 2):",
+            cursor_width=0
+        )
+        self.add_widget(self.text)
+
+        self.text = TextInput(
+            font_size=80,
+            font_name='comic sans ms',
+            readonly=True,
+            halign="center",
+            pos_hint={"center_x": 0.5, "center_y": 0.3},
+            background_color=[0.6, 0.8, 0.9, 1],
+            text="The goal is to try to survive by not running out of hearts. When you lose all three hearts, the game is over.\nNow that you know how this works, are you ready to play?",
+            cursor_width=0
+        )
+        self.add_widget(self.text)
+
+        nextbutton = Button(
+            text="I'm Ready",
+            font_size=70,
+            size_hint=(0.3, 0.2),
+            pos_hint={"center_x": 0.5, "center_y": 0.17},
+            background_color=[0.2, 0.5, 0.9, 0.8],
+            font_name="comic sans ms",
+        )
+        nextbutton.bind(on_press=self.timeout)
+        self.add_widget(nextbutton)
+
+    def timeout(self, instance):
         Clock.schedule_once(self.transition, 0)
 
     def transition(self, instance):
         self.manager.transition = FadeTransition()
         self.manager.current = 'intro_choice'
-
-
-# class SceneThree(Screen):
-#     def __init__(self, **kwargs):
-#         super(SceneThree, self).__init__(**kwargs)

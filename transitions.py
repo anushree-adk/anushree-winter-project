@@ -11,13 +11,15 @@ from kivy.clock import Clock
 from kivy.core.window import Window
 from kivy.uix.label import Label
 from kivy.uix.image import Image
+from constants import transTime
+
 
 class StartingIntroT(Screen):
     def __init__(self, **kwargs):
         super(StartingIntroT, self).__init__(**kwargs)
 
     def on_enter(self):
-        Clock.schedule_once(self.choice, 0.8)
+        Clock.schedule_once(self.choice, transTime)
 
     def choice(self, instance):
         self.manager.transition = FadeTransition()
@@ -28,7 +30,7 @@ class IntroChoiceT(Screen):
         super(IntroChoiceT, self).__init__(**kwargs)
 
     def on_enter(self):
-        Clock.schedule_once(self.choice, 0.8)
+        Clock.schedule_once(self.choice, transTime)
 
     def choice(self, instance):
         self.manager.transition = FadeTransition()
