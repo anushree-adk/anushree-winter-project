@@ -35,3 +35,25 @@ class IntroChoiceT(Screen):
     def choice(self, instance):
         self.manager.transition = FadeTransition()
         self.manager.current = 'escape_ship_c'
+
+class ChoiceGameoverT(Screen):
+    def __init__(self, **kwargs):
+        super(ChoiceGameoverT, self).__init__(**kwargs)
+
+    def on_enter(self):
+        Clock.schedule_once(self.choice, transTime)
+
+    def choice(self, instance):
+        self.manager.transition = FadeTransition()
+        self.manager.current = 'game_over'
+
+class ChoiceSurviveT(Screen):
+    def __init__(self, **kwargs):
+        super(ChoiceSurviveT, self).__init__(**kwargs)
+
+    def on_enter(self):
+        Clock.schedule_once(self.choice, transTime)
+
+    def choice(self, instance):
+        self.manager.transition = FadeTransition()
+        self.manager.current = 'you_survived'
