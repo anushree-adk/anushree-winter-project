@@ -11,7 +11,6 @@ from kivy.clock import Clock
 from kivy.core.window import Window
 from kivy.uix.label import Label
 from kivy.uix.image import Image
-import hearts
 
 life = 3
 
