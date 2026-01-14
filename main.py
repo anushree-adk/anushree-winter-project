@@ -5,7 +5,6 @@ from intro_scenes import SceneOne, SceneTwo, SceneThree, SceneFour
 from transitions import IntroChoiceT, StartingIntroT, ChoiceGameoverT, ChoiceSurviveT
 from choice_screens import EscapeShipC, FirstChoice, NightChoice, WaterChoice, PlanChoice, GameOver, YouSurvived
 
-
 class ExpeditionApp(App):
     def build(self):
         sm = ScreenManager()
