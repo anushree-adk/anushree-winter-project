@@ -1,7 +1,16 @@
-from kivy.uix.button import Button
-from kivy.uix.screenmanager import Screen, FadeTransition
+from kivy.app import App
+from kivy.compat import clock
+from kivy.properties import StringProperty
+from kivy.uix import button
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.screenmanager import Screen, ScreenManager, FadeTransition
 from kivy.uix.textinput import TextInput
-
+from kivy.uix.anchorlayout import AnchorLayout
+from kivy.uix.button import Button
+from kivy.clock import Clock
+from kivy.core.window import Window
+from kivy.uix.label import Label
+from kivy.uix.image import Image
 
 # This is the starting screen that comes when run
 class StartingScreen(Screen):
